@@ -7,11 +7,6 @@
         <input id="name" type="text" v-model="name" required autofocus>
       </div>
 
-      <label for="email">E-Mail Address</label>
-      <div>
-        <input id="email" type="email" v-model="email" required>
-      </div>
-
       <label for="password">Password</label>
       <div>
         <input id="password" type="password" v-model="password" required>
@@ -35,7 +30,6 @@ export default {
   data () {
     return {
       name: '',
-      email: '',
       password: '',
       password_confirmation: '',
       is_admin: null,
@@ -46,7 +40,6 @@ export default {
     register: function () {
       let data = {
         name: this.name,
-        email: this.email,
         password: this.password,
         is_admin: this.is_admin,
       }

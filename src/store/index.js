@@ -32,7 +32,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit('auth_request')
         axios({
-          url: 'http://localhost:3000/login',
+          url: process.env.baseUrl + 'login',
           data: user,
           method: 'POST',
         }).then(resp => {
@@ -54,7 +54,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit('auth_request')
         axios({
-          url: 'http://localhost:3000/register',
+          url: process.env.baseUrl + 'register',
           data: user,
           method: 'POST',
         }).then(resp => {

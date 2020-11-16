@@ -5,6 +5,10 @@
       |
       <router-link to="/about">About</router-link>
       <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
+      |
+      <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
+      |
+      <router-link v-if="!isLoggedIn" to="/register">Register</router-link>
     </div>
     <router-view/>
   </div>
