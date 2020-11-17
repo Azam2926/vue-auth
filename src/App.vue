@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link>
       |
       <router-link to="/about">About</router-link>
-      <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
+      <span v-if="isLoggedIn"> | <router-link @click.native="logout" to="#">Logut</router-link></span>
       <span v-if="!isLoggedIn"> | <router-link to="/login">Login</router-link></span>
       <span v-if="!isLoggedIn"> | <router-link to="/register">Register</router-link></span>
       <span v-if="isLoggedIn"> | <router-link to="/secure">Secure Page</router-link></span>

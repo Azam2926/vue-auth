@@ -1,13 +1,21 @@
 <template>
   <div>
+    <h1>Login</h1>
     <form class="login" @submit.prevent="login">
-      <h1>Sign in</h1>
-      <label>Username</label>
-      <input required v-model="username" type="text" placeholder="Name"/>
-      <label>Password</label>
-      <input required v-model="password" type="password" placeholder="Password"/>
+
+      <label for="name">Username</label>
+      <div>
+        <input id="name" type="text" v-model="username" required autofocus>
+      </div>
+
+      <label for="password">Password</label>
+      <div>
+        <input id="password" type="password" v-model="password" required>
+      </div>
       <hr/>
-      <button type="submit">Login</button>
+      <div>
+        <button type="submit">Login</button>
+      </div>
     </form>
   </div>
 </template>
