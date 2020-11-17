@@ -2,7 +2,7 @@
   <div>
     <form class="login" @submit.prevent="login">
       <h1>Sign in</h1>
-      <label>Email</label>
+      <label>Username</label>
       <input required v-model="username" type="text" placeholder="Name"/>
       <label>Password</label>
       <input required v-model="password" type="password" placeholder="Password"/>
@@ -24,9 +24,9 @@ export default {
 
   methods: {
     login: function () {
-      let email = this.email
+      let username = this.username
       let password = this.password
-      this.$store.dispatch('login', { email, password }).
+      this.$store.dispatch('login', { username, password }).
           then(() => this.$router.push('/')).
           catch(err => console.log(err))
     }

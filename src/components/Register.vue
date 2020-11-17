@@ -4,7 +4,7 @@
     <form @submit.prevent="register">
       <label for="name">Name</label>
       <div>
-        <input id="name" type="text" v-model="name" required autofocus>
+        <input id="name" type="text" v-model="username" required autofocus>
       </div>
 
       <label for="password">Password</label>
@@ -14,7 +14,7 @@
 
       <label for="password-confirm">Confirm Password</label>
       <div>
-        <input id="password-confirm" type="password" v-model="password_confirmation" required>
+        <input id="password-confirm" type="password" v-model="password_repeat" required>
       </div>
 
       <div>
@@ -29,19 +29,18 @@ export default {
   name: 'Register',
   data () {
     return {
-      name: '',
+      username: '',
       password: '',
-      password_confirmation: '',
-      is_admin: null,
+      password_repeat: '',
     }
   },
 
   methods: {
     register: function () {
       let data = {
-        name: this.name,
+        username: this.username,
         password: this.password,
-        is_admin: this.is_admin,
+        password_repeat: this.password_repeat,
       }
       this.$store.dispatch('register', data).
           then(() => this.$router.push('/')).

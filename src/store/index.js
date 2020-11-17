@@ -32,11 +32,11 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit('auth_request')
         axios({
-          url: process.env.baseUrl + 'login',
+          url: process.env.VUE_APP_BASE_URL_API + 'user/login',
           data: user,
           method: 'POST',
         }).then(resp => {
-          const token = resp.data.token
+          const token = resp.data.access_token
           const user = resp.data.user
           localStorage.setItem('token', token)
           axios.defaults.headers.common['Authorization'] = token
@@ -54,7 +54,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit('auth_request')
         axios({
-          url: process.env.baseUrl + 'register',
+          url: process.env.VUE_APP_BASE_URL_API + 'user/register',
           data: user,
           method: 'POST',
         }).then(resp => {
@@ -85,6 +85,7 @@ export default new Vuex.Store({
   getters: {
     isLoggedIn: state => !!state.token,
     authStatus: state => state.status,
+    user: state => state.user,
   },
   modules: {},
 })

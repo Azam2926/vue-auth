@@ -5,10 +5,9 @@
       |
       <router-link to="/about">About</router-link>
       <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
-      |
-      <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
-      |
-      <router-link v-if="!isLoggedIn" to="/register">Register</router-link>
+      <span v-if="!isLoggedIn"> | <router-link to="/login">Login</router-link></span>
+      <span v-if="!isLoggedIn"> | <router-link to="/register">Register</router-link></span>
+      <span v-if="isLoggedIn"> | <router-link to="/secure">Secure Page</router-link></span>
     </div>
     <router-view/>
   </div>
@@ -17,6 +16,7 @@
 
 <script>
 export default {
+  name : 'App',
   computed: {
     isLoggedIn: function () { return this.$store.getters.isLoggedIn},
   },
@@ -58,6 +58,7 @@ export default {
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  cursor: pointer;
 }
 
 #nav a.router-link-exact-active {
