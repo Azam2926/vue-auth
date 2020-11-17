@@ -3,7 +3,7 @@
     <h1>Register</h1>
     <div class="errors">
       <ul v-if="errors">
-        <li v-for="(error, index) in errors" :key="index">{{error[0]}}</li>
+        <li v-for="(error, index) in errors" :key="index">{{ error[0] }}</li>
       </ul>
     </div>
     <form @submit.prevent="register">
@@ -37,7 +37,7 @@ export default {
       username: '',
       password: '',
       password_repeat: '',
-      errors: {}
+      errors: {},
     }
   },
 
@@ -50,9 +50,7 @@ export default {
       }
       this.$store.dispatch('register', data).
           then(() => this.$router.push('/')).
-          catch(err => {
-            this.errors = err.response.data.errors
-          })
+          catch(err => this.errors = err.response.data.errors)
     },
   },
 }
